@@ -6,6 +6,8 @@ import "../../styles/Employees.css";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
+import ReactPaginate from "react-paginate";
+import ReactCard from "react-bootstrap/Card";
 function Employees() {
   const [name, setName] = useState("");
   const [age, setAge] = useState(0);
@@ -14,6 +16,14 @@ function Employees() {
   const [wage, setWage] = useState(0);
   const [employeeList, setEmployeeList] = useState([]);
   const [modal_add, setModalAdd] = useState(false);
+    //Paginacion
+    const [pageNumber, setPageNumber] = useState(0);
+    const clientsPerPage = 3;
+    const pagesVisited = pageNumber * clientsPerPage;
+    const pageCount = Math.ceil(employeeList.length / clientsPerPage);
+    const changePage = ({ selected }) => {
+      setPageNumber(selected);
+    };
 
   useEffect(() => {
     Axios.get("http://localhost:3001/employee").then((response) => {
@@ -36,10 +46,12 @@ function Employees() {
 
   return (
     <div className="App">
+      <ReactCard>
+      <h1>Empleados</h1>
       <Button  className ="add"variant="outline-primary" onClick={() => setModalAdd(true)}>
         Agregar Employee
       </Button>
-      <Table>
+      <Table striped bordered hover>
         <thead>
           <tr>
             <th>Name</th>
@@ -51,7 +63,7 @@ function Employees() {
           </tr>
         </thead>
         <tbody>
-          {employeeList.map((val, key) => {
+          {employeeList .slice(pagesVisited, pagesVisited + clientsPerPage).map((val, key) => {
             return (
               <tr key={val.id}>
                 <td>{val.name}</td>
@@ -78,6 +90,16 @@ function Employees() {
           })}
         </tbody>
       </Table>
+      <ReactPaginate
+        previousLabel={"Anterior"}
+        nextLabel={"Siguiente"}
+        pageCount={pageCount}
+        onPageChange={changePage}
+        containerClassName={"paginationBttns"}
+        previousLinkClassName={"previousBtns"}
+        nextLinkClassName={"nextBttn"}
+        disabledClassName={"paginationDisable"}
+      />
       <ReactModal
         isOpen={modal_add}
         onRequestClose={() => setModalAdd(false)}
@@ -133,6 +155,7 @@ function Employees() {
           </Form.Row>
         </Form>
       </ReactModal>
+      </ReactCard>
     </div>
   );
 }

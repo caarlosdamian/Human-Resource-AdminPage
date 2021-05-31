@@ -18,10 +18,9 @@
     padding: 40px;
   }
   .add{
-    width: 170px;
-    height: 40px;
-    float: right;
-    position: relative;
+    position:absolute;
+    top: 10px;
+    right:0;
   }
 
   .information{
@@ -45,4 +44,38 @@
   .information button:hover{
     cursor: pointer;
   }
+  
+.paginationBttns {
+  width: 80%;
+  height: 40px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.paginationBttns a {
+  padding: 10px;
+  margin: 8px;
+  border-radius: 4px;
+  border: 1px solid;
+  color: #7777a0;
+  cursor: pointer;
+}
+
+.paginationBttns a:hover {
+  color: white;
+  background-color: #aeaeae;
+}
+
+.paginationActive a {
+  color: white;
+  background-color: #2b2eff;
+}
+
+.paginationDisabled a {
+  color: grey;
+  background-color: grey;
+}
+
+
   
