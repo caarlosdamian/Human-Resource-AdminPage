@@ -5,6 +5,9 @@
   display: flex;
   flex-direction: row;
 }
+.logo{
+  border-radius: 15px
+}
 
 .navbar .leftSide {
   flex: 50%;
