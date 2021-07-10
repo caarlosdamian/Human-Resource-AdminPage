@@ -1,0 +1,81 @@
+.Modal {
+    font-size: 12px;
+    position: relative;
+    height: 100%;
+    top: 40px;
+    font-size: 12px;
+    align-items: center;
+    left: 70%;
+    right: 40px;
+    bottom: 40px;
+    top: 0px;
+    border: 1px solid #ccc;
+    background: #fff;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 4px;
+    outline: none;
+    padding: 40px;
+  }
+  .add{
+    position:absolute;
+    top: 10px;
+    right:0;
+  }
+
+  .information{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .information input{
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
+    padding-left: 10px;
+    margin: 10px;
+  }
+  .information button{
+    width: 300px;
+    height: 50px;
+    margin-top: 50px;
+    padding-left: 10px;
+  }
+  .information button:hover{
+    cursor: pointer;
+  }
+  
+.paginationBttns {
+  width: 80%;
+  height: 40px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.paginationBttns a {
+  padding: 10px;
+  margin: 8px;
+  border-radius: 4px;
+  border: 1px solid;
+  color: #7777a0;
+  cursor: pointer;
+}
+
+.paginationBttns a:hover {
+  color: white;
+  background-color: #aeaeae;
+}
+
+.paginationActive a {
+  color: white;
+  background-color: #2b2eff;
+}
+
+.paginationDisabled a {
+  color: grey;
+  background-color: grey;
+}
+
+
+  
